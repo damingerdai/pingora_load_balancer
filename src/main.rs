@@ -41,7 +41,7 @@ impl ProxyHttp for LB {
 }
 
 fn main() {
-    let mut my_server = Server::new(None).unwrap();
+    let mut my_server = Server::new(Some(Opt::default())).unwrap();
     my_server.bootstrap();
 
     let mut upstreams = LoadBalancer::try_from_iter(["1.1.1.1:443", "1.0.0.0:443"]).unwrap();
